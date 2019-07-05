@@ -1,0 +1,26 @@
+<!-- The general sibling selector selects all elements that are siblings of a specified element. -->
+
+<!-- The following example selects all <p> elements that are siblings of <div> elements:  -->
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div ~ p {
+  background-color: yellow;
+}
+</style>
+</head>
+<body>
+
+<p>Paragraph 1.</p>
+
+<div>
+  <p>Paragraph 2.</p>
+</div>
+
+<p>Paragraph 3.</p>
+<code>Some code.</code>
+<p>Paragraph 4.</p>
+
+</body>
+</html>

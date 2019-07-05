@@ -1,0 +1,18 @@
+﻿@model Demo01WebApp.Models.Customer
+
+@{
+    ViewData["Title"] = "New Test";
+    var cust = (Customer)ViewData["Customer"];
+}
+
+<h2>Test</h2>
+
+<p>This is a sample paragraph.</p>
+@*<p>@ViewData["Firstname"] @ViewData["Lastname"]</p>*@
+
+<p>@cust.Id</p>
+<p>@cust.Firstname</p>
+<p>@cust.Lastname</p>
+@*@Model.Id <br />
+@Model.Firstname <br />
+@Model.Lastname <br />*@

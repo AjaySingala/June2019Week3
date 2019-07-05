@@ -1,0 +1,16 @@
+﻿@model  Customer;
+
+@{
+    ViewData["Title"] = "Get";
+}
+
+<h2>Get</h2>
+<h3>This is the Customer Get Action View.</h3>
+
+@if (Model != null)
+{
+    <p>[@Model.Id] - @Model.Firstname @Model.Lastname</p>
+}
+
+<strong>@ViewData["Message"]</strong>
+
