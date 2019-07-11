@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebAppWithAuth.Models;
 
+using Microsoft.AspNetCore.Identity;
+
 namespace WebAppWithAuth.Controllers
 {
     [Authorize]
