@@ -1,0 +1,37 @@
+<!-- Syntax:
+  @media not|only mediatype and (mediafeature and|or|not mediafeature) {
+  CSS-Code;
+}
+
+Media Types:
+Value	Description
+all		Default. Used for all media type devices
+print	Used for printers
+screen	Used for computer screens, tablets, smart-phones etc.
+speech	Used for screenreaders that "reads" the page out loud
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  background-color: yellow;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+</style>
+</head>
+<body>
+
+<h1>The @media Rule</h1>
+
+<p>Resize the browser window. When the width of this document is 600 pixels or less, the background-color is "lightblue", otherwise it is "yellow".</p>
+
+</body>
+</html>
