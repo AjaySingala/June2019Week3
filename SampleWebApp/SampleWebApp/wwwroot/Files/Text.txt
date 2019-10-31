@@ -1,0 +1,1 @@
+﻿This is the content of a text file to demonstrate how you can display contents of a text file from a Controller's action.

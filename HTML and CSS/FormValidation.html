@@ -2,30 +2,30 @@
 <html>
 	<head>
 		<title>Form Validation</title>
-		<!-- <style> -->
-			<!-- input:invalid { -->
-			  <!-- border: 2px dashed red; -->
-			<!-- } -->
+		<style> 
+			input:invalid { 
+			   border: 2px dashed red; 
+			 } 
 
-			<!-- input:valid { -->
-			  <!-- border: 2px solid black; -->
-			<!-- } -->
-		<!-- </style> -->
+			 input:valid { 
+			   border: 2px solid green; 
+			 }
+		 </style> 
 	</head>
 <body>
 	<!-- Required -->
-	<!-- <form>
+	<form>
 	  <label for="choose">Would you prefer a banana or cherry?</label>
 	  <input id="choose" name="i_like" required>
-	  <button>Submit</button>
-	</form> -->
+	  <!-- <button>Submit</button> -->
+	</form> 
 
 	<!-- Regular Expression -->
-	<!-- <form>
+	<form>
 	  <label for="choose">Would you prefer a banana or a cherry?</label>
 	  <input id="choose" name="i_like" required pattern="Banana|Cherry">
-	  <button>Submit</button>
-	</form> -->
+	  <!-- <button>Submit</button> -->
+	</form> 
 
 	<!-- length -->
 	<form>
@@ -35,7 +35,7 @@
 	  </div>
 	  <div>
 		<label for="number">How many would you like?</label>
-		<input type="number" id="number" name="amount" value="1" min="1.50" max="10.25">
+		<input type="number" id="number" name="amount" value="1" min="1" max="10">
 	  </div>
 	  <div>
 		<button>Submit</button>

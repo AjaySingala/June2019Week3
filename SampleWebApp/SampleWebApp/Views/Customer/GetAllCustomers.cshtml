@@ -1,0 +1,17 @@
+﻿@*Strongly Typed View*@
+@model IEnumerable<SampleWebApp.Models.Customer>
+
+@{
+    ViewData["Title"] = "GetAllCustomers";
+}
+
+<h1>GetAllCustomers</h1>
+
+@foreach (var item in Model)
+{
+    <div>
+        @item.Id:
+        @item.Firstname,
+        @item.Lastname
+    </div>
+}

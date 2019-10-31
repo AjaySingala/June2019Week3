@@ -12,6 +12,23 @@
 </address>
 
 <address>
-    <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+    @*Original*@
+
+    @*<strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />
+        <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>*@
+
+    @*Part 1*@
+    @*<strong>Support:</strong> <email>Support</email><br />
+        <strong>Marketing:</strong> <email>Marketing</email>*@
+
+    @*Part 2*@
+    <strong>Support:</strong> <email mail-to="Support"></email><br />
+    <strong>Marketing:</strong> <email mail-to="Marketing"></email>
+
+    @*PArt 3: ProcessAsync*@
+    <br />
+    <h3>Async Tag Helper</h3>
+    <strong>Support:</strong> <email>Support</email><br />
+    <strong>Marketing:</strong> <email>Marketing</email>
+
 </address>
