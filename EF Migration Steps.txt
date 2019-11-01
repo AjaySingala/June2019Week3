@@ -1,0 +1,20 @@
+1. Add connection string to appsettings.json
+2. Create db context class
+3. DI for db context class in ConfigureServices() of Startup.cs
+4. Enable migrations (Code First) 	-> Add-Migration <name>
+5. Update the database				-> Update-Database
+
+
+Layers Application Development:
+1. Create an ASP.NET MVC Core Web Application
+2. Add a Class Library (.NET Core) to the solution (for your models)
+3. Create a model class in the class lib
+4. Create your DbContext class in the class lib
+5. Add connection string to the appSettings.json of the MVC project
+6. Add DI for your DBContext class in the ConfigureServices method of the Startup.cs of the MVC project
+7. By default, Class Libraries do not include EF. So add it via the package manager console (Ensure the class lib is selected as the default project in the package manager console window):
+	install-package Microsoft.EntityFrameworkCore.SqlServer
+8. Add migration:
+	Add-Migration Init -Context EFLayers.Models.EFDbContext
+9. Update db:
+	Update-Database -Context EFLayers.Models.EFDbContext
