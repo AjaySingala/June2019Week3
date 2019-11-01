@@ -14,6 +14,7 @@ using EFLayers.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using EFLayers.Models;
+using EFLayers.Models.Repositories;
 
 namespace EFLayers
 {
@@ -46,6 +47,8 @@ namespace EFLayers
             services.AddDbContext<EFDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("EFDbContext")));
+
+            services.AddTransient<ICustomerRepository, CustomerRepo>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

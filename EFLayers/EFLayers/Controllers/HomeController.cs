@@ -10,6 +10,16 @@ namespace EFLayers.Controllers
 {
     public class HomeController : Controller
     {
+        public IActionResult Partial()
+        {
+            return View();
+        }
+
+        public IActionResult RenderPartial()
+        {
+            return View();
+        }
+
         public IActionResult Index()
         {
             return View();

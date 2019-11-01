@@ -11,7 +11,7 @@ namespace Demo01WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        //[GlobalAttribute("Controller", "Home")]
+        [GlobalAttribute("Controller", "Home")]
         public IActionResult Index()
         {
             return View();

@@ -96,7 +96,7 @@ namespace Demo01WebApp.Controllers
             return View(customer);
         }
 
-        //[GlobalAttribute("MyKey", "MyValue")]
+        [GlobalAttribute("MyKey", "MyValue")]
         public IActionResult Index()
         {
             return View();

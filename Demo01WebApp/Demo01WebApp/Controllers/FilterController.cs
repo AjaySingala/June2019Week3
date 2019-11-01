@@ -7,7 +7,7 @@ using Demo01WebApp.Filters;
 
 namespace Demo01WebApp.Controllers
 {
-    //[ServiceFilter(typeof(SampleActionFilter))]
+    [ServiceFilter(typeof(SampleActionFilter))]
     public class FilterController : Controller
     {
         public string Index()

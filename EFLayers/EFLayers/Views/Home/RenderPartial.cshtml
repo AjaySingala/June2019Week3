@@ -1,0 +1,14 @@
+﻿@*RenderPartial returns void, so a semicolon is required 
+    at the end and so it must be enclosed in the braces.
+*@
+
+<div>
+    @{
+        Html.RenderPartial("_HeaderNavBar");
+    }
+    <div>
+        @*Content of this view*@
+        <b><i>Render Partial</i></b>
+    </div>
+
+</div>

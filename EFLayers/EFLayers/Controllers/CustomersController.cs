@@ -6,22 +6,23 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EFLayers.Models;
+using EFLayers.Models.Repositories;
 
 namespace EFLayers.Controllers
 {
     public class CustomersController : Controller
     {
-        private readonly EFDbContext _context;
+        private readonly ICustomerRepository _repo;
 
-        public CustomersController(EFDbContext context)
+        public CustomersController(ICustomerRepository repo)
         {
-            _context = context;
+            _repo = repo;
         }
 
         // GET: Customers
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Customers.ToListAsync());
+            return View(await _repo.Get());
         }
 
         // GET: Customers/Details/5
@@ -32,8 +33,7 @@ namespace EFLayers.Controllers
                 return NotFound();
             }
 
-            var customer = await _context.Customers
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var customer = await _repo.Get(id);
             if (customer == null)
             {
                 return NotFound();
@@ -57,8 +57,7 @@ namespace EFLayers.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(customer);
-                await _context.SaveChangesAsync();
+                await _repo.Create(customer);
                 return RedirectToAction(nameof(Index));
             }
             return View(customer);
@@ -72,7 +71,7 @@ namespace EFLayers.Controllers
                 return NotFound();
             }
 
-            var customer = await _context.Customers.FindAsync(id);
+            var customer = await _repo.Get(id);
             if (customer == null)
             {
                 return NotFound();
@@ -96,8 +95,7 @@ namespace EFLayers.Controllers
             {
                 try
                 {
-                    _context.Update(customer);
-                    await _context.SaveChangesAsync();
+                    await _repo.Edit(id, customer);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -123,8 +121,7 @@ namespace EFLayers.Controllers
                 return NotFound();
             }
 
-            var customer = await _context.Customers
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var customer = await _repo.Get(id);
             if (customer == null)
             {
                 return NotFound();
@@ -138,15 +135,13 @@ namespace EFLayers.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var customer = await _context.Customers.FindAsync(id);
-            _context.Customers.Remove(customer);
-            await _context.SaveChangesAsync();
+            var isDeleted = await _repo.Delete(id);
             return RedirectToAction(nameof(Index));
         }
 
         private bool CustomerExists(int id)
         {
-            return _context.Customers.Any(e => e.Id == id);
+            return _repo.CustomerExists(id);
         }
     }
 }

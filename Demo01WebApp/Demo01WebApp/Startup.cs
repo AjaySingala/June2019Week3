@@ -38,12 +38,12 @@ namespace Demo01WebApp
                 options.UseSqlServer(
                     Configuration.GetConnectionString("TestDBDbContext")));
 
-            //services.AddScoped<SampleActionFilter>();
+            services.AddScoped<SampleActionFilter>();
 
-            services.AddMvc()
-                //(options =>
-                //    options.Filters.Add(new GlobalAttribute("Some", "Data"))
-                //)
+            services.AddMvc
+                (options =>
+                    options.Filters.Add(new GlobalAttribute("Some", "Data"))
+                )
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddTransient<ICustomerRepository, CustomerRepository>();
         }
