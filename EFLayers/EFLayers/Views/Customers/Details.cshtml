@@ -25,6 +25,12 @@
     </dl>
 </div>
 <div>
+    <h4>User Details</h4>
+    @*<partial name="_UserDetails" for="UserVM" model='new UserVM { Username = "Ajay", UserId = "ajay"}' />*@
+    <br />
+    @Html.Partial("_UserDetails", new UserVM { Username = @Model.Username, UserId = @Model.UserId })
+</div>
+<div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>

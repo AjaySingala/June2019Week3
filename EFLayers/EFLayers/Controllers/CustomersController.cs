@@ -42,10 +42,21 @@ namespace EFLayers.Controllers
             return View(customer);
         }
 
+        public IActionResult Show()
+        {
+            var userVM = new UserVM()
+            {
+                UserId = "1111",
+                Username = "Ajay"
+            };
+
+            return View(userVM);
+        }
+
         // GET: Customers/Create
         public IActionResult Create()
         {
-            return View();
+            return View(new Customer());
         }
 
         // POST: Customers/Create
@@ -84,7 +95,7 @@ namespace EFLayers.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Firstname,Lastname")] Customer customer)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Firstname,Lastname, Username, UserId")] Customer customer)
         {
             if (id != customer.Id)
             {

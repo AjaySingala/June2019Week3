@@ -77,9 +77,21 @@ namespace EFLayers
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
+                    name: "CustomRoutingIndex",
+                    "CustomRouting/{username?}",
+                    new { Controller = "CustomRouting", Action = "Index" }
+                    );
+
+                routes.MapRoute(
+                    name: "CustomRouting",
+                    "CustomRouting/{action}/{username?}",
+                    new {Controller = "CustomRouting", Action = "Index"}
+                    );
+                
+                routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
-            });
+                });
         }
-    }
+}
 }

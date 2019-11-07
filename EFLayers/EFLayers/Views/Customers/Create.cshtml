@@ -1,17 +1,31 @@
 ﻿@model EFLayers.Models.Customer
 
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
 @{
     ViewData["Title"] = "Create";
+    var userId = UserManager.GetUserId(User);
+    var userName = UserManager.GetUserName(User);
+
+    Model.UserId = userId;
+    Model.Username = userName;
 }
 
 <h1>Create</h1>
 
 <h4>Customer</h4>
 <hr />
+@Model.UserId : @Model.Username
+<br />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Username" />
+            <input type="hidden" asp-for="UserId" />
+
             <div class="form-group">
                 <label asp-for="Firstname" class="control-label"></label>
                 <input asp-for="Firstname" class="form-control" />

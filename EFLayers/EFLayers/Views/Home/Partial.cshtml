@@ -1,9 +1,14 @@
-﻿@*@Html.Partial() method doesn't need to be in code block 
+﻿@*@Html.Partial() method doesn't need to be in code block
     because it returns a html string.
 *@
+
+<div>
+    @*Content of this view*@
+    <b><i>Parent View Main Content</i></b>
+</div>
 
 @Html.Partial("_HeaderNavBar")
 <div>
     @*Content of this view*@
-    <b><i>Partial</i></b>
+    <b><i>Parent View Second half content</i></b>
 </div>

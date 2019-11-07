@@ -28,6 +28,10 @@ namespace EFLayers.Models.Migrations
 
                     b.Property<string>("Lastname");
 
+                    b.Property<string>("UserId");
+
+                    b.Property<string>("Username");
+
                     b.HasKey("Id");
 
                     b.ToTable("Customers");
