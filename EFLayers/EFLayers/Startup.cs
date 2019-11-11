@@ -48,6 +48,9 @@ namespace EFLayers
                 options.UseSqlServer(
                     Configuration.GetConnectionString("EFDbContext")));
 
+            // DI to fetch User details in Controller.
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             services.AddTransient<ICustomerRepository, CustomerRepo>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
