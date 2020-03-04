@@ -1,3 +1,9 @@
+On Linux:
+sudo apt-get update -y
+sudo apt-get install docker-engine -y 
+sudo service docker start
+sudo docker run hello-world
+
 docker --version
 docker version
 docker info
